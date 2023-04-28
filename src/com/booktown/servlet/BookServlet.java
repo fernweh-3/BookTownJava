@@ -27,13 +27,14 @@ public class BookServlet extends BaseServlet {
         Result<List<Book>> response;
         String pageNoObj = map.get("pageNo");
         String bookIdSet = map.get("bookIdSet");
+        String PAGE_VOLUME = map.get("pageVolume");
         if (pageNoObj != null && pageNoObj.length() != 0) {
             String pageNoStr = map.get("pageNo");
             String category = map.get("category");
             int pageNo = Integer.parseInt(pageNoStr);
             if ("全部".equals(category) || category == null) {
                 try {
-                    List<Book> bookList = bookService.getBookListByPageNo(pageNo, 12);
+                    List<Book> bookList = bookService.getBookListByPageNo(pageNo, Integer.parseInt(PAGE_VOLUME));
                     if (bookList.size() > 0) {
                         response = messageService.createResponse(200, "success", bookList);
                     } else {
@@ -44,7 +45,7 @@ public class BookServlet extends BaseServlet {
                 }
             } else {
                 try {
-                    List<Book> bookList = bookService.getBookListByCategory(pageNo, category, 12);
+                    List<Book> bookList = bookService.getBookListByCategory(pageNo, category, Integer.parseInt(PAGE_VOLUME));
                     if (bookList.size() > 0) {
                         response = messageService.createResponse(200, "success", bookList);
                     } else {
@@ -71,7 +72,6 @@ public class BookServlet extends BaseServlet {
 
     protected void getBookInfo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         MessageService<Book> messageService = new MessageService<>();
-//        HashMap<String, String> map = (HashMap<String, String>) req.getAttribute("json");
         HashMap<String, String> map = GetRequestJsonUtils.getRequestJson(req);
         String bookIdStr = map.get("bookId");
         Result<Book> response;
