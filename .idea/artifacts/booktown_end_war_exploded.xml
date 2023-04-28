@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="booktown_end:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/booktown_end_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="booktown_end/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="booktown_end" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="druid-1.2.16" />
+          <element id="library" level="project" name="mysql-connector-j-8.0.32" />
+          <element id="library" level="project" name="commons-dbutils-1.7" />
+          <element id="library" level="project" name="commons-beanutils-1.8.0" />
+          <element id="library" level="project" name="commons-logging-1.1.1" />
+          <element id="library" level="project" name="gson-2.10.1" />
+          <element id="library" level="project" name="easy-captcha-1.6.2" />
+          <element id="library" level="project" name="javax.servlet-api-3.1.0" />
+          <element id="library" level="project" name="project" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
